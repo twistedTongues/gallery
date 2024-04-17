@@ -18,8 +18,8 @@ import {
  */
 export const createTable = pgTableCreator((name) => `gallery_${name}`);
 
-export const posts = createTable(
-  "post",
+export const images = createTable(
+  "image",
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
@@ -30,5 +30,5 @@ export const posts = createTable(
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
-  })
+  }),
 );
