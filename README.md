@@ -15,9 +15,9 @@
 - [x] Routing/image page (w/ parallel route)
 - [x] Update upload button
 - [x] ShadUIify(specifically toasts)
-- [ ] Delete button (w/ Server Actions)
+- [x] Delete button (w/ Server Actions)
 - [x] Analytics (w/ posthog)
-- [ ] Ratelimiting (w/ upstash)
+- [x] Ratelimiting (w/ upstash)
 - [ ] Fix the page layout for images of different resolutions
 - [ ] "Selecting" images on the gallery page
 - [ ] "Infinite scroll"

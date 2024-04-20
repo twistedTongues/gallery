@@ -12,10 +12,9 @@ export const ourFileRouter = {
       const user = auth();
       if (!user.userId) throw new UploadThingError("Unauthorized");
 
-      // const fullUserData = await clerkClient.users.getUser(user.userId);
-      //
-      // if (fullUserData?.privateMetadata?.["can-upload"] !== true)
-      //   throw new UploadThingError("User does not have upload permissions");
+      const fullUserData = await clerkClient.users.getUser(user.userId);
+      if (fullUserData?.privateMetadata?.["can-upload"] !== true)
+        throw new UploadThingError("User does not have upload permissions");
 
       return { userId: user.userId };
     })
