@@ -16,7 +16,7 @@
 - [x] Update upload button
 - [x] ShadUIify(specifically toasts)
 - [ ] Delete button (w/ Server Actions)
-- [ ] Analytics (w/ posthog)
+- [x] Analytics (w/ posthog)
 - [ ] Ratelimiting (w/ upstash)
 - [ ] Fix the page layout for images of different resolutions
 - [ ] "Selecting" images on the gallery page

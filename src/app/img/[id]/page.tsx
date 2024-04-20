@@ -5,12 +5,9 @@ export default function PhotoPage({
 }: {
   params: { id: string },
 }) {
-  const idAsNumber = +photoId;
-  if (Number.isNaN(idAsNumber)) throw new Error("Indvalid photo id");
-
   return (
     <div className="h-full">
-      <FullPageImageView id={idAsNumber} />
+      <FullPageImageView photoId={photoId} />
     </div>
   )
 }
