@@ -52,17 +52,31 @@ export function SimpleUploadButton() {
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
       posthog.capture("upload_begin")
-      toast(<div className="flex gap-2 items-center"><LoadingSpinnerSVG /> <span className="text-lg">Uploading...</span></div>)
+      toast(<div className="flex gap-2 items-center"><LoadingSpinnerSVG /> <span className="text-lg">Uploading...</span></div>,
+        {
+          duration: 100_000,
+          id: "upload_begin",
+        },
+      );
+    },
+    onUploadError(error) {
+      posthog.capture("upload_error", { error });
+      toast.dismiss("upload_begin");
+      toast.error("Upload failed");
     },
     onClientUploadComplete() {
+      toast.dismiss("upload_begin");
       toast("Upload Complete!");
       router.refresh();
     }
   })
   return (
     <div>
-      <label htmlFor="upload-button" className="cursor-pointer"><UploadSVG /></label>
-      <input id="upload-button" type="file" className="sr-only" {...inputProps} />
+      <label htmlFor="upload-button" className="cursor-pointer">
+        <UploadSVG />
+      </label>
+      <input id="upload-button" type="file"
+        className="sr-only" {...inputProps} />
     </div>
   )
 }
